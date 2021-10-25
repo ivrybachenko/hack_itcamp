@@ -15,7 +15,8 @@ public class Action {
     public Action() {
     }
 
-    public Action(String description, String webhook) {
+    public Action(String code, String description, String webhook) {
+        this.code = code;
         this.description = description;
         this.webhook = webhook;
     }

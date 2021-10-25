@@ -5,6 +5,7 @@
       <router-link to="/">Главная</router-link> |
       <router-link to="/view">Карта рисков</router-link> |
       <router-link to="/incident">Загрузка инцидента</router-link> |
+      <router-link to="/incident_list">Список инцидентов</router-link> |
       <router-link to="/about">О приложении</router-link>
     </div>
     <router-view/>

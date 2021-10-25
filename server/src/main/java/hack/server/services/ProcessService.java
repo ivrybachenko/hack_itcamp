@@ -23,10 +23,10 @@ public class ProcessService {
     public void initFromHardcode() {
         OperationalProcess operationalProcess1 = new OperationalProcess("О1", "КОнсультация специалиста",
                 "Телефонный разговор заказчика и специалиста техподдержки", Collections.emptyList());
-        operationalProcessRepository.save(operationalProcess1);
+        operationalProcessRepository.saveAndFlush(operationalProcess1);
         BusinessProcess businessProcess1 = new BusinessProcess("Б1", "Техподдержка",
                 "Оказание технической поддержки заказчикам", List.of(operationalProcess1));
-        businessProcessRepository.save(businessProcess1);
+        businessProcessRepository.saveAndFlush(businessProcess1);
     }
 
     public List<BusinessProcess> getAllBusinessProcesses() {

@@ -11,20 +11,29 @@
       <button disabled title="Функионал не реализован">Загрузить Excel</button>
     </div>
     <div class="upload-div">
-      <button>Загрузить тестовые данные</button>
+      <button v-on:click="uploadHardcode">Загрузить тестовые данные</button>
+    </div>
+    <div class="upload-div">
+      <button disabled title="Функионал не реализован">Создать вручную</button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import MenuLink from "@/components/MenuLink.vue"; // @ is an alias to /src
+import MenuLink from "@/components/MenuLink.vue";
+import {uploadHardcode} from "@/api/Threat"; // @ is an alias to /src
 
 export default Vue.extend({
   name: 'UploadThreats',
   components: {
 
   },
+  methods: {
+    uploadHardcode() {
+      uploadHardcode()
+    }
+  }
 });
 </script>
 

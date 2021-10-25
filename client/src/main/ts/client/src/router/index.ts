@@ -37,6 +37,11 @@ const routes: Array<RouteConfig> = [
     path: '/incident',
     name: 'Incident',
     component: () => import(/* webpackChunkName: "about" */ '../views/Incident.vue')
+  },
+  {
+    path: '/incident_list',
+    name: 'IncidentList',
+    component: () => import(/* webpackChunkName: "about" */ '../views/IncidentList.vue')
   }
 ]
 

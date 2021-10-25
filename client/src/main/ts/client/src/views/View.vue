@@ -10,11 +10,11 @@
       <p v-if="is_bp_empty">
         Бизнес-процессы, зарегистрированные в системе, отсутствуют.
       </p>
-      <div v-else>
+      <div v-else style="text-align: left;">
         <p>Бизнесс-процессы: </p>
-        <li v-for="bp in this.$data.business_processes" :key="bp.code">
-          {{ bp.name }}
-        </li>
+        <BusinessProcessComponent v-for="bp in this.$data.business_processes"
+                                  :key="bp.code"
+                                  :bp="bp" />
       </div>
     </div>
   </div>
@@ -23,7 +23,8 @@
 <script lang="ts">
 import Vue from 'vue';
 import {BusinessProcess} from "@/models/BusinessProcess";
-import {getBusinessProcesses} from "@/api/Process"; // @ is an alias to /src
+import {getBusinessProcesses} from "@/api/Process";
+import BusinessProcessComponent from "@/components/BusinessProcessComponent.vue"; // @ is an alias to /src
 
 interface ViewData {
   business_processes: Array<BusinessProcess>
@@ -31,8 +32,10 @@ interface ViewData {
 }
 
 export default Vue.extend({
-  name: 'View',
-  components: {},
+  name: 'TheView',
+  components: {
+    BusinessProcessComponent
+  },
   data: (): ViewData => {
     return {
       business_processes: [],
