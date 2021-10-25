@@ -3,15 +3,19 @@
     <p>
       На этой странице вы можете просмотреть список рисков, связанных с операционными процессами.
     </p>
-    <p v-if="false">
-      Бизнесс-процессы не указаны либо сервер долго не отвечает. Настройка бизнесс-процессов
-      может быть выполнена на странице загрузки структуры бизнесс-процессов.
-    </p>
+    <div v-if="loading">
+      Загрузка...
+    </div>
     <div v-else>
-      <p>Бизнесс-процессы: </p>
-      <li v-for="bp in this.$data.business_processes" :key="bp.code">
-        {{ bp.name }}
-      </li>
+      <p v-if="is_bp_empty">
+        Бизнес-процессы, зарегистрированные в системе, отсутствуют.
+      </p>
+      <div v-else>
+        <p>Бизнесс-процессы: </p>
+        <li v-for="bp in this.$data.business_processes" :key="bp.code">
+          {{ bp.name }}
+        </li>
+      </div>
     </div>
   </div>
 </template>
@@ -23,6 +27,7 @@ import {getBusinessProcesses} from "@/api/Process"; // @ is an alias to /src
 
 interface ViewData {
   business_processes: Array<BusinessProcess>
+  loading: boolean
 }
 
 export default Vue.extend({
@@ -30,16 +35,24 @@ export default Vue.extend({
   components: {},
   data: (): ViewData => {
     return {
-      business_processes: []
+      business_processes: [],
+      loading: false
     }
   },
   mounted() {
+    const vm = this
+    vm.loading = true
     getBusinessProcesses().then(r => {
-      this.$data.business_processes = r.data
+      vm.business_processes = r.data
+    }).finally(() => {
+      vm.loading = false
     });
   },
   computed: {
     is_bp_empty() {
+      if (this.$data.loading) {
+        return false;
+      }
       return this.$data.business_processes.length == 0;
     }
   }
