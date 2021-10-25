@@ -1,5 +1,7 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <p>Приложение разработано в рамках хакатона "Анализ и оценка рисковых сервисов".</p>
+    <p>Сириус</p>
+    <p>2021</p>
   </div>
 </template>

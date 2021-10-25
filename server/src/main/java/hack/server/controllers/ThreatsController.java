@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/threat")
+@RequestMapping("/api/threat")
 @RestController
 public class ThreatsController {
 

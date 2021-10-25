@@ -1,8 +1,11 @@
 <template>
   <div id="app">
+    <h1>Система управления рисками</h1>
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">Главная</router-link> |
+      <router-link to="/view">Карта рисков</router-link> |
+      <router-link to="/incident">Загрузка инцидента</router-link> |
+      <router-link to="/about">О приложении</router-link>
     </div>
     <router-view/>
   </div>
