@@ -4,9 +4,12 @@ import hack.server.models.Incident;
 import hack.server.services.IncidentService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/incident")
+
+@RequestMapping("/incident")
+@RestController()
 public class IncidentController {
 
     private final IncidentService incidentService;

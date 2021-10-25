@@ -2,13 +2,12 @@ package hack.server.controllers;
 
 import hack.server.models.Threat;
 import hack.server.services.ThreatService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/threat")
+@RequestMapping("/threat")
+@RestController
 public class ThreatsController {
 
     private final ThreatService threatService;

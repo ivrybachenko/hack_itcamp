@@ -104,3 +104,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Compiled client
+/server/src/main/resources/static/

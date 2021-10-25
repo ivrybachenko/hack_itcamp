@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/structure")
+
+@RequestMapping("/structure")
+@RestController()
 public class ProcessController {
     private final ProcessService processService;
 
